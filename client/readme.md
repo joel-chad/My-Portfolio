@@ -4,11 +4,11 @@
 
 To install, clone the repository to your preferred location on your machine:
 
-`git clone https://github.com/Jolaolu/react-tailwind-demo.git`
+`git clone https://gitlab.com/chadjnr/my-portfolio.git`
 
 Next, cd to the directory of the project.
 
-`$ cd react-tailwind-demo`
+`$ cd client`
 
 Next, install the dependencies for the project using the following command:
 
