@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
+import Frameworks from './Frameworks';
+// import Progress from './Progress';
+// import Img from '../assets/images/img.svg'
 
 class About extends Component {
     state = {  }
     render() { 
         return ( 
-            <div className='w-full bg-white text-center pt-20'>
+            <div className='w-full bg-white text-center pt-10'>
+            <div className='bg-red'>
                 {/* your educational background, profile, goals, interests and online resume */}
-                <h1 className='pb-4 font-semibold text-gray-900'>About Joel</h1>
+                <h1 className='pb-4 font-semibold text-5xl text-gray-900'>About Joel</h1>
                 <p className='text-gray-900 pb-4'><i className='font-thin text-lg'>I am a web designer and full stack developer based in Harare, Zimbabwe.<br></br><br></br></i> Currently
                 studying for a BTech Hons. Degree in Software Engineering at Harare Institute Of Technology,<br></br>I am interning 
                 at Health Informatics Training and Research Advancement Centre(Hitrac).<br></br> I am passionate about all things design and I love creating intuitive,
                  dynamic user experiences. I also do freelance work.
                 </p>
+                </div>
+                <hr className='shadow-lg'></hr>
+            <Frameworks/>
+
                 <h2 className='pb-4 font-semibold text-gray-900'>Technologies</h2>
                 <p className='text-gray-900 pb-4'>I specialise in the folloing technologies:</p>
                 <div class="w-full p-6">
@@ -69,6 +77,12 @@ class About extends Component {
                 <div>
             </div>
             </div>
+            
+            <div className='bg-gray-800 h-32'>
+            
+            </div>
+            
+            {/* <Progress/> */}
         </div>
          );
     }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Timeline from './Timeline'
 
 class Projects extends Component {
     state = {  }
     render() { 
         return ( 
             <div>
-                <h1>Hello</h1>
+                <Timeline/>
             </div>
          );
     }

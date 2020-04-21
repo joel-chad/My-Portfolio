@@ -12,4 +12,4 @@ const userSchema= mongoose.Schema({
     }
 })
 
-module.exports = mongoose.Model('Admin', userSchema);
+module.exports = mongoose.model('Admin', userSchema);

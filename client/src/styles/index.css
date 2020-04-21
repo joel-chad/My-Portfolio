@@ -12,11 +12,14 @@
  */
  @tailwind base;
 
- @font-face {
-  font-family: Poppins;
-  src: url("../fonts/Poppins/Poppins-Medium.ttf") format("truetype");  
-  font-weight: normal;
+
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/Inter/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2") format("truetype");  
+  font-weight: 400;
+  /* font-weight: normal; */
 }
+
 
  /**
   * This injects any component classes registered by plugins.
@@ -67,5 +70,10 @@
   */
 
 .App{
-  font-family: 'Poppins';
+  font-family: 'Inter';
+  font-size: 18px;
+}
+
+.nav{
+  font-family: 'InterMedium';
 }
