@@ -13,6 +13,15 @@ router.get('/',async (req, res)=>{
     }
 })
 
+router.get('/:id', async (req, res)=>{
+    try{
+        const message = await Message.findById(req.params.id)
+        res.json(message)
+    }catch(err){
+        res.json({message: err})
+    }
+})
+
 router.post('/saveMessage', async (req, res)=>{
     const message = new Message({
         firstName: req.body.firstName,
@@ -23,21 +32,6 @@ router.post('/saveMessage', async (req, res)=>{
     try{
         const newMessage = await message.save();
         res.json(newMessage)
-    }catch(err){
-        res.json({message: err})
-    }
-})
-
-router.patch('/:id', async (req, res)=>{
-    try{
-        const message = await Message.findByIdAndUpdate(req.params.id,
-            {
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                message: req.body.message,
-                email: req.body.email   
-            })
-        res.json(message)
     }catch(err){
         res.json({message: err})
     }

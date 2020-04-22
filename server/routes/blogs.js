@@ -11,6 +11,15 @@ router.get('/',async (req, res)=>{
     }
 })
 
+router.get('/:id', async (req, res)=>{
+    try{
+        const blog = await Blog.findById(req.params.id)
+        res.json(blog)
+    }catch(err){
+        res.json({message: err})
+    }
+})
+
 router.post('/saveBlog', async (req, res)=>{
     const blog = new Blog({
         title: req.body.title,
