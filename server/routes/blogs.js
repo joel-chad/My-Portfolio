@@ -26,13 +26,27 @@ router.post('/saveBlog', async (req, res)=>{
     }
 })
 
-router.patch('editBlog/:blogId', async (req, res)=>{
-    const id =req.params.id;
-    let items = {};
-    for(const counter of req.body){
-        items[counter] = counter.value
+router.patch('/:id',async (req, res)=>{
+    try{
+        const blog = await Blog.findByIdAndUpdate(req.params.id, {
+            title: req.body.title,
+            description: req.body.description,
+            body: req.body.body,
+            image: req.body.image
+        })
+        await res.json(blog)
+    }catch(err){
+        res.json({message: err})
     }
-    const blog = Blog.update({_id: id}, {$set: items}).exec()
+})
+
+router.delete('/:id',async (req, res)=>{
+    try{
+        const blog = await Blog.findByIdAndDelete(req.params.id)
+        res.json(blog)
+    }catch(err){
+        res.json({message: err})
+    }
 })
 
 module.exports=router

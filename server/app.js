@@ -26,7 +26,7 @@ app.use('/message', messageRoutes)
 const userRoutes = require('./routes/user');
 app.use('/user', userRoutes)
 
-mongoose.connect(process.env.MONGO_URL,{useUnifiedTopology: true, useNewUrlParser: true}, ()=>{
+mongoose.connect(process.env.MONGO_URL,{useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false}, ()=>{
     console.log("Connected to Database")
 })
 
