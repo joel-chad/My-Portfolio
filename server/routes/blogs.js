@@ -37,11 +37,11 @@ router.post('/saveBlog', async (req, res)=>{
 
 router.patch('/:id',async (req, res)=>{
     try{
-        const blog = await Blog.findByIdAndUpdate(req.params.id, {
-            title: req.body.title,
-            description: req.body.description,
-            body: req.body.body,
-            image: req.body.image
+        const blog = await Blog.updateOne({_id: req.params.id},{
+            $set:{
+                title: req.body.title,
+                description: req.body.description
+            }
         })
         await res.json(blog)
     }catch(err){
