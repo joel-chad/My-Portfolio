@@ -6,7 +6,7 @@ import Descripion from './Description';
 class Name extends Component {
     render() { 
         return ( 
-            <div className='bg-gray-800 w-full h-full pt-16'>
+            <div className='bg-gray-800 w-full h-3/4 pt-16'>
                 <div className='h-20 m-auto w-20'>
                     <img className='rounded-full text-center flex w-20 h-20' src={Avatar} alt=''/>
                 </div>
