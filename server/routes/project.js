@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const Blog = require('../models/Blog')
+const router = require('express').Router()
 const multer = require('multer')
+const Project = require('../models/Project')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -23,23 +23,23 @@ const upload = multer({storage: storage, limits: { fileSize: '4MB' }, fileFilter
 
 router.get('/',async (req, res)=>{
     try{
-    const blogs = await Blog.find()
-    res.json(blogs)
+    const projects = await Project.find()
+    res.json(projects)
     }catch(err){
         res.json({message: err});
     }
-})
+});
 
 router.get('/:id', async (req, res)=>{
     try{
-        const blog = await Blog.findById(req.params.id)
-        res.json(blog)
+        const project = await Project.findById(req.params.id)
+        res.json(project)
     }catch(err){
         res.json({message: err})
     }
 })
 
-router.post('/saveBlog',upload.single("BlogImage"), async (req, res)=>{
+router.post('/saveProject',upload.single("ProjectImage"), async (req, res)=>{
     // upload(req, res, (err)=>{
     //     console.log(req.file)
     //     if(err){
@@ -48,15 +48,16 @@ router.post('/saveBlog',upload.single("BlogImage"), async (req, res)=>{
     //     res.end('File Uploaded')
     // })
     console.log(req.file)
-    const blog = new Blog({
+    const project = new Project({
         title: req.body.title,
         description: req.body.description,
         body: req.body.body,
-        image: req.file.path
+        image: req.file.path,
+        link: req.body.link
     })
     try{
-        const savedBlog = await blog.save();
-        res.json(savedBlog)
+        const savedProject = await project.save();
+        res.json(savedProject)
     }catch(err){
         res.json({message: err})
     }
@@ -64,13 +65,13 @@ router.post('/saveBlog',upload.single("BlogImage"), async (req, res)=>{
 
 router.patch('/:id',async (req, res)=>{
     try{
-        const blog = await Blog.updateOne({_id: req.params.id},{
+        const project = await Project.updateOne({_id: req.params.id},{
             $set:{
                 title: req.body.title,
                 description: req.body.description
             }
         })
-        await res.json(blog)
+        await res.json(project)
     }catch(err){
         res.json({message: err})
     }
@@ -78,11 +79,12 @@ router.patch('/:id',async (req, res)=>{
 
 router.delete('/:id',async (req, res)=>{
     try{
-        const blog = await Blog.findByIdAndDelete(req.params.id)
-        res.json(blog)
+        const project = await Project.findByIdAndDelete(req.params.id)
+        res.json(project)
     }catch(err){
         res.json({message: err})
     }
 })
 
-module.exports=router
+
+module.exports = router

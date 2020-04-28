@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const blogSchema = mongoose.Schema({
+const projectSchema = mongoose.Schema({
     title:{
         type: String,
         required: true
@@ -13,6 +13,9 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    link:{
+        type: String,
+    },
     image: {
         type: String,
         required: true
@@ -23,4 +26,4 @@ const blogSchema = mongoose.Schema({
     }
 })
 
-module.exports= mongoose.model('Blogs', blogSchema)
+module.exports = mongoose.model('Project', projectSchema);

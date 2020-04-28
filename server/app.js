@@ -18,13 +18,16 @@ app.use(bodyparser.json({limit: '30MB'}));
 app.use(express.static(path.join(__dirname, '/assets/images')));
 
 const blogRoutes = require('./routes/blogs')
-app.use('/blog', blogRoutes)
+app.use('/blog', blogRoutes);
 
 const messageRoutes = require('./routes/messages')
-app.use('/message', messageRoutes)
+app.use('/message', messageRoutes);
 
 const userRoutes = require('./routes/user');
-app.use('/user', userRoutes)
+app.use('/user', userRoutes);
+
+const projectRoutes = require('./routes/project');
+app.use('/project', projectRoutes);
 
 mongoose.connect(process.env.MONGO_URL,{useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false}, ()=>{
     console.log("Connected to Database")
